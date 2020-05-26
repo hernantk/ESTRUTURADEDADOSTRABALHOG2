@@ -6,17 +6,44 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Integer[] array = new Integer[300];
+
+
+
+        Integer[] vetor = new Integer[10];
+
+
         Random d = new Random();
-        for(int i = array.length-1 ; i>0;i--){
-            array[i]=d.nextInt(6000);
-
-
+        for(int i = 0; i<vetor.length;i++){
+            vetor[i]=d.nextInt(30);
         }
 
-        System.out.println(array[2]);
+
+        StringBuilder vetordes = new StringBuilder();
+        for (int numero:vetor) {
+            vetordes.append(numero);
+            vetordes.append(",");
+        }
+
+
+        QuickSort quickSort = new QuickSort();
+        quickSort.quicksort(vetor,0,vetor.length-1);
+
+        StringBuilder vetorord = new StringBuilder();
+        for (int numero:vetor ) {
+
+            vetorord.append(numero);
+            vetorord.append(",");
+
+        }
+        System.out.println(vetordes);
+        System.out.println(vetorord);
+
+
 
     }
+
+
+
 
 
 }

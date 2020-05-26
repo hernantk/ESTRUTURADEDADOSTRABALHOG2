@@ -8,11 +8,12 @@ public class QuickSort {
     public void quicksort(Integer[] vetor,Integer ini,Integer fin){
         // Verficação para continuidade do processo
         if (ini < fin){
-            Integer pivoord= particion(vetor,ini,fin);
+            // Part = posição ordenada do pivo no vetor
+            Integer part= particion(vetor,ini,fin);
 
+            quicksort(vetor,ini,part-1);
 
-            quicksort(vetor,ini,pivoord-1);
-            quicksort(vetor,pivoord+1,fin);
+            quicksort(vetor,part+1,fin);
         }
 
 
@@ -25,17 +26,19 @@ public class QuickSort {
 
         Integer pivo = vetor[vlrfim];
 
-        Integer inicio=vlrini;
+        Integer posicaopivo=vlrini;
 
+
+        //Ordenação do vetor a partir do pivo
         for (int i=vlrini;i<vlrfim;i++){
             if(vetor[i]<= pivo){
-                troca(vetor,i,inicio);
-                inicio++;
+                troca(vetor,i,posicaopivo);
+                posicaopivo++;
             }
         }
                             //#PIVO
-        troca(vetor,inicio,vlrfim);
-        return inicio;
+        troca(vetor,posicaopivo,vlrfim);
+        return posicaopivo;
     }
     //Valores são as posições do Vetor
     private void troca(Integer[] vetor,Integer vlr, Integer vlr1) {

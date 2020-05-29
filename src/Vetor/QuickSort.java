@@ -1,11 +1,13 @@
 package Vetor;
 
+import java.util.Properties;
+
 public class QuickSort {
 
-
-
+     Integer troca = 0;
+     Integer comparaçoes=0;
                                           // 0           // tamanho lista-1
-    public void quicksort(Integer[] vetor,Integer ini,Integer fin){
+    public void quicksort(Integer[] vetor, Integer ini, Integer fin){
         // Verficação para continuidade do processo
         if (ini < fin){
             // Part = posição ordenada do pivo no vetor
@@ -31,6 +33,7 @@ public class QuickSort {
 
         //Ordenação do vetor a partir do pivo
         for (int i=vlrini;i<vlrfim;i++){
+            this.comparaçoes++;
             if(vetor[i]<= pivo){
                 troca(vetor,i,posicaopivo);
                 posicaopivo++;
@@ -45,13 +48,19 @@ public class QuickSort {
         Integer troca = vetor[vlr];
         vetor[vlr] = vetor[vlr1];
         vetor[vlr1] = troca;
+        this.troca++;
+
 
 
 
     }
 
 
+    public Integer getTroca() {
+        return troca;
+    }
 
-
-
+    public Integer getComparaçoes() {
+        return comparaçoes;
+    }
 }
